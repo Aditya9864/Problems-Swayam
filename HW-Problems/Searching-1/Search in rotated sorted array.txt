@@ -1,0 +1,40 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        int low=0, high=nums.length-1;
+        while(low<=high)
+        {
+           int mid=(low+high)/2;
+            if(nums[mid]==target)
+             return mid;
+            if(nums[mid]>=nums[0]) //mid in left part
+            {
+                if(nums[0]<=target) // target in left part
+                {
+                    if(nums[mid]<target)
+                     low=mid+1;
+                    else
+                     high=mid-1;
+                }
+                else  // target in right part
+                {
+                    low=mid+1;
+                }
+            }
+            else  // mid in right part
+            {
+                if( nums[nums.length-1] >= target ) //target in right part
+                {
+                    if(nums[mid] < target)
+                     low=mid+1;
+                    else
+                     high=mid-1;
+                }
+                else // target inn left part
+                {
+                    high=mid-1;
+                }
+            }
+        }
+        return -1;
+    }
+}
