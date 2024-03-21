@@ -6,14 +6,14 @@ public class Solution
     {
         //    Write your code here.
         int low=Integer.MIN_VALUE,high=0;
-        for(int i=0;i<boards.length;i++)
+        for(int i=0;i<boards.size();i++)
         {
-            low=Math.max(s,boards[i]);
-            high=high+boards[i];
+            low=Math.max(s,boards.get(i));
+            high=high+boards.get(i);
         }
         while(low<high)
         {
-            int mid=(hig+low)/2;
+            int mid=(high+low)/2;
             if(canPaint(boards,mid,k))
              high=mid;
             else
@@ -24,11 +24,11 @@ public class Solution
     public static boolean canPaint(ArrayList<Integer> boards,int mid,int k)
     {
         int low=0;
-        for(int i=0;i<boards.length;i++)
+        for(int i=0;i<boards.size();i++)
         {
-            low=low+boards[i];
+            low=low+boards.get(i);
             if(low>mid){
-                low=boards[i];
+                low=boards.get(i);
                 k--;
             }
             if(k==0)
