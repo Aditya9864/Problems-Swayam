@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class Solution {
     public static int kthElement(ArrayList<Integer> arr1, ArrayList<Integer> arr2, int n, int m, int k) {
-        // Write your coder here
+        // Write your code here
         if(m<n)
          return kthElement(arr2,arr1,m,n,k);
         int low=Math.max(0,k-m);
